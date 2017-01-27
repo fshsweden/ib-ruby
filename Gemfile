@@ -14,3 +14,6 @@ gem 'activerecord-jdbcsqlite3-adapter', '>= 1.2.2', :platforms => :jruby
 gem 'jdbc-sqlite3', '>= 3.7.2', :platforms => :jruby
 
 gem "backports"
+
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+gem 'active_model_serializers'

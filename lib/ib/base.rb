@@ -6,8 +6,8 @@ module IB
     extend ActiveModel::Callbacks
     include ActiveModel::Validations
     include ActiveModel::Serialization
-    include ActiveModel::Serializers::Xml
-    include ActiveModel::Serializers::JSON
+###    include ActiveModel::Serializers::Xml
+###    include ActiveModel::Serializers::JSON
 
     define_model_callbacks :initialize
 
@@ -56,7 +56,7 @@ module IB
     alias save! save
 
     ### Noop methods mocking ActiveRecord::Base macros
-    
+
     def self.attr_protected *args
     end
 
