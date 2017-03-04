@@ -1,8 +1,5 @@
-puts "require 'ib/base_properties'"
 require 'ib/base_properties'
-puts "require 'ib/base'"
 require 'ib/base'
-puts "require 'ib/base' DONE"
 
 module IB
   # IB Models can be either lightweight (tableless) or database-backed.

@@ -1,10 +1,6 @@
 
-puts "BASE_PROPERTIES INCLUDED!!"
-
 require 'active_model'
-puts "require active_model_serializers"
 require "active_model_serializers"
-puts "DONE"
 
 require 'active_support/concern'
 require 'active_support/hash_with_indifferent_access'
