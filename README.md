@@ -2,9 +2,10 @@
 
 Ruby Implementation of the Interactive Brokers Trader Workstation (TWS) API v.965-967.
 
+Copyright (C) 2018-2019 Peter Andersson
 Copyright (C) 2006-2013 Paul Legato, Wes Devauld, and Ar Vicco.
 
-https://github.com/ib-ruby/ib-ruby
+https://github.com/fshsweden/ib-ruby
 
 __WARNING:__ This software is provided __AS-IS__ with __NO WARRANTY__, express or
 implied. Your use of this software is at your own risk. It may contain any number
@@ -12,10 +13,6 @@ of bugs, known or unknown, which might cause you to lose money if you use it.
 You've been warned.
 
 This code is not sanctioned or supported by Interactive Brokers.
-
-##ANNOUNCE:
-Checkout Branch »Gateway«  for support of FA-(aka Friends & Family)-Accounts.
-Its a release-candidate for Version 0.9.3
 
 ## SUMMARY:
 
@@ -47,11 +44,11 @@ other API implementations. The choice is yours.
 
 ### From RubyGems
 
-    $ sudo gem install ib-ruby [-v version]
+    $ gem install ib-ruby [-v version]
 
 ### From Source
 
-    $ git clone https://github.com/ib-ruby/ib-ruby
+    $ git clone https://github.com/fshsweden/ib-ruby
     $ cd ib-ruby; rake gem:install
 
 ## PREREQUISITES:
@@ -76,6 +73,7 @@ other API implementations. The choice is yours.
     | 0.7.1       |    924-925  |    966       |
     | 0.8.1       |    926-930  |    967 beta  |
     | 0.9.0+      |    931-932  |    967 final |
+    | 1.2         |    972+     |    972+      |
 
 4. Start Interactive Broker's Trader Work Station or Gateway before your code
    attempts to connect to it. Note that TWS and Gateway listen to different ports,
@@ -130,54 +128,9 @@ fundamental data, request options calculations, place, list, and cancel orders.
 You may also want to look into `spec/integration` directory for more scenarios,
 use cases and examples of handling IB messages.
 
-## RAILS INTEGRATION:
-
-This gem has two operating modes: standalone and Rails-engine. If you require it in a
-Rails environment, it loads Rails engine automatically. Otherwise, it does not load any
-Rails integration.
-
-To add ib-ruby to your Rails 3 project, follow these steps:
-
-Add to your Gemfile:
-``` ruby
-gem 'ib-ruby', '~>0.9'
-```
-Add the require to your config/application.rb:
-``` ruby
-require File.expand_path('../boot', __FILE__)
-require 'rails/all'
-require 'ib'
-if defined?(Bundler)
-```
-Now run:
-
-    $ bundle install
-    $ rake ib:install:migrations
-    $ rake db:migrate
-
-This will install ib-ruby gem and copy its migrations into your Rails apps migrations.
-
-You can now use or modify IB models, develop controllers and views for them in your Rails app.
-
 ## DB BACKEND:
 
-Even if you don't use Rails, you can still take advantage of its data persistance layer
-(ActiveRecord ORM). In order to use data persistance, you have to set up the database
-(SQLite recommended for simplicity) and run migrations located at gems 'db/migrate' folder.
-It is recommended that you use a gem like [standalone_migrations](https://github.com/thuss/standalone-migrations) for this.
-
-You further need to:
-``` ruby
-    require 'ib/db'
-    IB::DB.connect :adapter => 'sqlite3', :database => 'db/test.sqlite3'
-    require 'ib'
-```
-Only require 'ib' AFTER you've connected to DB, otherwise your Models will not
-inherit from ActiveRecord::Base and won't be persistent. If you are using Rails,
-you don't need IB::DB.connect part, Rails will take care of it for you.
-
-Now, all your IB Models are just ActiveRecords and you can save them to DB just
-like you would with Rails models.
+Removed and not supported
 
 ## RUNNING TESTS:
 
@@ -192,15 +145,7 @@ JRuby head (ruby-1.9.3-p203-compatible mode). It is not JRuby-specific though, a
 for either JRuby or MRI, please report an [issue](https://github.com/ib-ruby/ib-ruby/issues/new)
 and we will work on it.
 
-Please keep in mind that when using Ruby 1.8.7, you need to either explicitly:
-``` ruby
-    require 'rubygems'
-    require 'ib'
-```
-
-or set the environment variable "RUBYOPT" to "-rubygems":
-
-    set RUBYOPT=-rubygems
+Ruby 1.8.7 is NOT supported
 
 ## CONTRIBUTING:
 
@@ -208,7 +153,7 @@ If you want to contribute to ib-ruby development:
 
 1. Make a fresh fork of ib-ruby (Fork button on top of Github GUI)
 2. Clone your fork locally (git clone /your fork private URL/)
-3. Add main ib-ruby repo as upstream (git remote add upstream git://github.com/ib-ruby/ib-ruby.git)
+3. Add main ib-ruby repo as upstream (git remote add upstream git://github.com/fshsweden/ib-ruby.git)
 4. Create your feature branch (git checkout -b my-new-feature)
 5. Modify code as you see fit
 6. Commit your changes (git commit -am 'Added some feature')
